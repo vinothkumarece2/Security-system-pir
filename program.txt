@@ -1,0 +1,37 @@
+int LED = 2;       // D4
+int BUZZER = 4;     //D2
+int SENSOR_OUTPUT_PIN = 5; // D1
+
+void setup() {
+
+  pinMode(SENSOR_OUTPUT_PIN, INPUT);  
+
+  pinMode(LED, OUTPUT);  
+  pinMode(BUZZER, OUTPUT);         
+
+  Serial.begin(9600);
+
+}
+
+void loop() {
+
+  int sensorvalue = digitalRead(SENSOR_OUTPUT_PIN);
+
+  Serial.println(sensorvalue);
+  
+  if (sensorvalue== HIGH) {
+ 
+   digitalWrite(LED, HIGH);
+   delay(100);
+   digitalWrite(BUZZER, HIGH);
+   delay(100);
+
+  }
+
+  else {
+
+    digitalWrite(LED, LOW);
+    digitalWrite(BUZZER, LOW);
+   
+  }
+}
